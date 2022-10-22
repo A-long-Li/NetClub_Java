@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+       <mapper namespace="com.example.myspringboot.dao.Registdao">
+       <update id="updateByuserNumber" parameterType="com.example.myspringboot.entity.Regist">
+              update studata SET name=#{name},initials=#{initials},top_domains=#{top_domains},
+                                 userNumber=#{userNumber},QQ=#{QQ},purpose1=#{purpose1},purpose2=#{purpose2}
+              where userNumber = #{userNumber}
+       </update>
+       <select id="selectByuserNumber" parameterType="String" resultType="INTEGER">
+              select 1 from studata where userNumber = #{userNumber} limit 1;
+       </select>
+
+       <insert id="addnew" parameterType="com.example.myspringboot.entity.Regist" keyProperty="id" useGeneratedKeys="true">
+              INSERT INTO `studata` VALUES (#{id}, #{name}, #{initials},#{top_domains}, #{userNumber}, #{QQ}, #{purpose1}, #{purpose2});
+       </insert>
+</mapper>
