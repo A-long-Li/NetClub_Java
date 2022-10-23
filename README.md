@@ -7,6 +7,8 @@
 后端技术 `java` + `springboot` + `mybatis`
 
 ## 食用指南
-导入`sql`文件，建表
+导入`netclub.sql`文件，建表
+\
 找到`application.yml` 来进行配置管理
-启动
+\
+启动`MyspringbootApplication`
