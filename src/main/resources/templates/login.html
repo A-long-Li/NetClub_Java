@@ -11,6 +11,7 @@
     <link href="../favicon/android-chrome-192x192.png" rel="icon" sizes="192x192">
     <link href="../favicon/android-chrome-512x512.png" rel="icon" sizes="512x512">
     <link href="../favicon/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="../JS/layui/css/layui.css">
     <!-- <link href="../ResourceFile/touch-icon-ipad.png" rel="apple-touch-icon" sizes="72x72">
     <link href="../ResourceFile/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="114x114">
     <link href="../ResourceFile/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="144x144"> -->
@@ -159,9 +160,8 @@
         function check(){
             if($('#initials option:selected').val() == "empty" || $('#purpose1 option:selected').val() == "--请选择你想加入的组哦--"
             || $('#top_domains option:selected').val() == 0
-            || $("input[name='userNumber']").val().length!=12 )
-            {
-                alert("填写信息有误，请检查");
+            || $("input[name='userNumber']").val().length!=12 || $("input[name='name']").val() == ""||$("input[name='QQ']").val()=="") {
+                layer.msg("表格填写有误，请仔细检查!",{icon:0})
             }
             else{
                 postAjax();
@@ -180,7 +180,7 @@
                 type: "POST" ,
                 contentType:'application/x-www-form-urlencoded; charset=UTF-8',
                 success: function (data) {
-                    alert(data.msg);
+                    layer.msg(data.msg,{icon:1})
                 },
                 error:function (XMLHttpRequest, textStatus, errorThrown) {
                     if(XMLHttpRequest.status==403){
@@ -194,6 +194,7 @@
             });
         }
     </script>
+    <script src="../JS/layui/layui.js"></script>
     <script type="text/javascript " src="../JS/login_Node.js"></script>
     <script type="text/javascript" src="../JS/login_check.js"></script>
     <script type="text/javascript" src="../JS/headTab.js"></script>
